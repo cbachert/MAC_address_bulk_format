@@ -1,0 +1,38 @@
+<h1>Bulk format MAC addresses</h1>
+
+<% # form which accepts MAC addresses to be reformatted  %>
+<%= form_tag("./index", method: "get") do %>
+  <%= text_area_tag(:message, params[:message], size: "24x6") %>
+  <%= submit_tag("Format") %>
+<% end %>
+
+<% # table which displays requested MAC addresses in multiple formats %>
+<table>
+  <tr>
+    <th>Input</th>
+    <th>mmmmmmssssss</th>
+    <th>MM:MM:MM:SS:SS:SS</th>
+    <th>MM-MM-MM-SS-SS-SS</th>
+    <th>MMMM.MMSS.SSSS</th>
+  </tr>
+  <% @mac_addresses.each do |mac_address| %>
+    <% if mac_address.valid_mac?
+      mac_address_base = mac_address.to_mac
+      mac_address_colon = mac_address_base.scan(/\w{2}/).join(':')
+      mac_address_dash = mac_address_base.scan(/\w{2}/).join('-')
+      mac_address_dot = mac_address_base.scan(/\w{4}/).join('.')
+    else
+      mac_address_base = "invalid input"
+      mac_address_colon = "invalid input"
+      mac_address_dash = "invalid input"
+      mac_address_dot = "invalid input"
+    end %>
+    <tr>
+      <td><%= mac_address %></td>
+      <td><%= mac_address_base %></td>
+      <td><%= mac_address_colon %></td>
+      <td><%= mac_address_dash %></td>
+      <td><%= mac_address_dot %></td>
+    </tr>
+  <% end %>
+</table>
