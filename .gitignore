@@ -19,6 +19,3 @@
 # Ignore directories with dynamically created files
 /tmp
 /log
-
-# Ignore all .keep files
-.keep
