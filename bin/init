@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+echo "Precompiling assets for production use..."
+RAILS_ENV=production rails assets:precompile
+
+echo "Starting server..."
+exec ./bin/bundle exec rails s -p 80 -b '0.0.0.0' -e production
