@@ -2,9 +2,10 @@ version: "3"
 services:
   web:
     environment:
-    - SECRET_KEY_BASE=${SECRET_KEY_BASE} 
+    - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+    - RAILS_SERVE_STATIC_FILES=true  # serve static files in production environment for standalone use
     build: .
-    command: bundle exec rails s -p 80 -b '0.0.0.0' -e production
+    command: bin/init
     volumes:
       - .:/myapp
     ports:
