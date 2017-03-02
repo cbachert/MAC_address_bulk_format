@@ -15,24 +15,26 @@
     <th>MM-MM-MM-SS-SS-SS</th>
     <th>MMMM.MMSS.SSSS</th>
   </tr>
-  <% @mac_addresses.each do |mac_address| %>
-    <% if mac_address.valid_mac?
-      mac_address_base = mac_address.to_mac
-      mac_address_colon = mac_address_base.scan(/\w{2}/).join(':')
-      mac_address_dash = mac_address_base.scan(/\w{2}/).join('-')
-      mac_address_dot = mac_address_base.scan(/\w{4}/).join('.')
-    else
-      mac_address_base = "invalid input"
-      mac_address_colon = "invalid input"
-      mac_address_dash = "invalid input"
-      mac_address_dot = "invalid input"
+<%  unless @mac_addresses.nil?
+      @mac_addresses.each do |mac_address|
+        if mac_address.valid_mac?
+          mac_address_base = mac_address.to_mac
+          mac_address_colon = mac_address_base.scan(/\w{2}/).join(':')
+          mac_address_dash = mac_address_base.scan(/\w{2}/).join('-')
+          mac_address_dot = mac_address_base.scan(/\w{4}/).join('.')
+        else
+          mac_address_base = "invalid input"
+          mac_address_colon = "invalid input"
+          mac_address_dash = "invalid input"
+          mac_address_dot = "invalid input"
+        end %>
+        <tr> 
+          <td><%= mac_address %></td>
+          <td><%= mac_address_base %></td>
+          <td><%= mac_address_colon %></td>
+          <td><%= mac_address_dash %></td>
+          <td><%= mac_address_dot %></td>
+        </tr>
+   <% end 
     end %>
-    <tr>
-      <td><%= mac_address %></td>
-      <td><%= mac_address_base %></td>
-      <td><%= mac_address_colon %></td>
-      <td><%= mac_address_dash %></td>
-      <td><%= mac_address_dot %></td>
-    </tr>
-  <% end %>
 </table>
