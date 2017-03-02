@@ -19,3 +19,7 @@
 # Ignore directories with dynamically created files
 /tmp
 /log
+
+# Ignore public assets, as these will be compiled dynamically
+/public/assets
+
