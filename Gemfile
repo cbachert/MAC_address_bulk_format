@@ -53,3 +53,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # MAC address validation
 gem 'mac_address'
 
+# Bootstrap for design
+gem 'bootstrap-sass', '3.3.6'
