@@ -3,17 +3,27 @@
 </div>
 
 <p>
-  <%= ENV["IMPRESSUM_NAME"] %>
-  <br />
-  <%= ENV["IMPRESSUM_ADDRESS"] %>
+<% unless nil_or_empty(ENV["IMPRESSUM_NAME"]) %>
+     <%= ENV["IMPRESSUM_NAME"] %>
+     <br />
+<% end %> 
+<% unless nil_or_empty(ENV["IMPRESSUM_ADDRESS"]) %>
+     <%= ENV["IMPRESSUM_ADDRESS"] %>
+<% end %>
 </p>
+
 <p>
-  Telefon: <%= ENV["IMPRESSUM_PHONE"] %>
-  <br />
-  Telefax: <%= ENV["IMPRESSUM_FAX"] %>
-  <br />
-  E-Mail: <a href="mailto:<%= ENV["IMPRESSUM_EMAIL"] %>"><%= ENV["IMPRESSUM_EMAIL"] %></a>
-</p>
+<% unless nil_or_empty(ENV["IMPRESSUM_PHONE"]) %>
+     Telefon: <%= ENV["IMPRESSUM_PHONE"] %>
+     <br />
+<% end %>
+<% unless nil_or_empty(ENV["IMPRESSUM_FAX"]) %>
+     Telefax: <%= ENV["IMPRESSUM_FAX"] %>
+     <br />
+<% end %>
+<% unless nil_or_empty(ENV["IMPRESSUM_EMAIL"]) %>
+     E-Mail: <a href="mailto:<%= ENV["IMPRESSUM_EMAIL"] %>"><%= ENV["IMPRESSUM_EMAIL"] %></a>
+<% end %>
 
 <h2>Disclaimer – rechtliche Hinweise</h2>
 <h3>§ 1 Warnhinweis zu Inhalten</h3>
