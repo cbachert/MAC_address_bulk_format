@@ -21,5 +21,14 @@ module Myapp
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    
+    # Disable cookies as the application doesn't make use of sessions
+    config.middleware.delete ActionDispatch::Cookies
+    config.middleware.delete ActionDispatch::Session::CookieStore
+
+    # Disable CSRF protection as it relies on cookies
+    config.action_controller.allow_forgery_protection = false
   end
 end
+
+
