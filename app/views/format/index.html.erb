@@ -2,11 +2,12 @@
 <h1>Bulk format MAC addresses</h1>
 </div>
 <% # form which accepts MAC addresses to be reformatted %>
+<p> Enter MAC addresses (one per line) in any format to convert to the format(s) of your choice</p>
 <%= form_tag(root_path, method: "get") do %>
   <div class="form-group">
     <%= text_area_tag(:message, params[:message], 
                       class:"form-control input-lg font-monospace", rows: 5, 
-                      placeholder:"001122334455\naa:bb:cc:dd:ee:ff\n00-11-22-33-44-55\n0011.2233.4455") %>
+                      placeholder:"aa:bb:cc:dd:ee:ff") %>
     <br />
     <%= submit_tag("Format", class: "btn btn-lg btn-default") %>
   </div>
