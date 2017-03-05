@@ -1,24 +1,15 @@
-# README
+# MAC address bulk format
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+A ruby website which accepts MAC addresses (one per line) in any format and converts to all usual formats. The website is hosted at http://mactools.bachert.it/.
 
-Things you may want to cover:
+## Configuration
+- Supply all environment variables referenced in docker-compose.yml
 
-* Ruby version
+## Deployment
+- clone repository
+- docker-compose build
+- docker-compose up
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Run Tests
+- docker-compose run web rails test
