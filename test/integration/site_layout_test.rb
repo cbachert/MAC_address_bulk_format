@@ -7,5 +7,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", impressum_path
     assert_select "a[href=?]", datenschutz_path
+    assert_select "a[href=?]", 'https://github.com/cbachert/MAC_address_bulk_format'
   end
 end
